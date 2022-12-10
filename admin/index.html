@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>CIC - Content in Container</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/dark.css">
+	<link rel="stylesheet" href="css/media.css">
+	<!--<link rel="stylesheet" href="css/light.css">-->
+	<link rel="stylesheet" href="themes/fa/css/all.css">
+	
+	<!-- JS -->
+	<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+	<script type="text/javascript" src="js/jquery.json-editor.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	
+	<!-- Codemirror -->
+	<link rel="stylesheet" href="codemirror/lib/codemirror.css">
+	<link rel="stylesheet" href="codemirror/theme/darcula.css">
+	<script src="codemirror/lib/codemirror.js"></script>
+	<script src="codemirror/mode/xml/xml.js"></script>
+	<script src="codemirror/mode/sql/sql.js"></script>
+	<script src="codemirror/mode/javascript/javascript.js"></script>
+	<script src="codemirror/mode/css/css.js"></script>
+	<script src="codemirror/mode/htmlmixed/htmlmixed.js"></script>
+	
+	<script src="codemirror/addon/edit/closetag.js"></script>
+	<script src="codemirror/addon/mode/simple.js"></script>
+	
+	<script type="text/javascript" src="js/cicmode.js"></script>
+	
+</head>
+<body>
+	
+	<main class="app">
+	
+		<!-- Leftbar -->
+		<section class="leftbar">
+			<div class="leftbar_header">
+				<a href="http://cic-cmf.com"  target="_blank">
+					<div style="margin:-20px 0 10px 0;padding: 20px; background: #111; text-align: center; font-family: 'Quicksand', 'Calibri Light', sans-serif;">
+						<svg width="32" height="32">
+							<rect width="8" height="8" style="fill:rgb(128 128 128 /60%)"/>
+							<rect width="8" height="8" x="12" y="12" style="fill:rgb(128 128 128 /60%)"/>
+							<rect width="20" height="8" x="12" y="00" style="fill:rgb(128 128 128)"/>
+							<rect width="8" height="12" x="24" y="8" style="fill:rgb(128 128 128)"/>
+							<rect width="8" height="20" x="00" y="12" style="fill:rgb(128 128 128)"/>
+							<rect width="12" height="8" x="8" y="24" style="fill:rgb(128 128 128)"/>
+							<!--Sorry, your browser does not support inline SVG.-->
+							cic
+						</svg>
+						<br>CIC - Content in container
+					</div>
+				</a>
+				<div class="leftbar_menu_btn mob_yes">≡</div>
+			</div>
+			<ul id="left_menu">
+				<li><a class="menu" id="user" href="#"><i class="fas fa-user"></i>User</a></li>
+				<li>
+					<a class="menu" id="project" href=""><i class="fas fa-globe-americas"></i>Project</a>
+					<ul id="pages_list">
+						<!--<img style="margin: -50px  20px;" src="img/load_line.gif"/>-->
+						<svg style="margin: -40px  20px; background: none; display: block; shape-rendering: auto;" width="100px" height="100px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+							<circle cx="84" cy="50" r="10" fill="#f3f3f3">
+								<animate attributeName="r" repeatCount="indefinite" dur="0.352112676056338s" calcMode="spline" keyTimes="0;1" values="3;0" keySplines="0 0.5 0.5 1" begin="0s"></animate>
+								<animate attributeName="fill" repeatCount="indefinite" dur="1.408450704225352s" calcMode="discrete" keyTimes="0;0.25;0.5;0.75;1" values="#f3f3f3;#a3a3ac;#b8babd;#d8dddf;#f3f3f3" begin="0s"></animate>
+							</circle><circle cx="16" cy="50" r="10" fill="#f3f3f3">
+							  <animate attributeName="r" repeatCount="indefinite" dur="1.408450704225352s" calcMode="spline" keyTimes="0;0.25;0.5;0.75;1" values="0;0;3;3;3" keySplines="0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1" begin="0s"></animate>
+							  <animate attributeName="cx" repeatCount="indefinite" dur="1.408450704225352s" calcMode="spline" keyTimes="0;0.25;0.5;0.75;1" values="16;16;16;50;84" keySplines="0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1" begin="0s"></animate>
+							</circle><circle cx="50" cy="50" r="10" fill="#d8dddf">
+							  <animate attributeName="r" repeatCount="indefinite" dur="1.408450704225352s" calcMode="spline" keyTimes="0;0.25;0.5;0.75;1" values="0;0;3;3;3" keySplines="0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1" begin="-0.352112676056338s"></animate>
+							  <animate attributeName="cx" repeatCount="indefinite" dur="1.408450704225352s" calcMode="spline" keyTimes="0;0.25;0.5;0.75;1" values="16;16;16;50;84" keySplines="0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1" begin="-0.352112676056338s"></animate>
+							</circle><circle cx="84" cy="50" r="10" fill="#b8babd">
+							  <animate attributeName="r" repeatCount="indefinite" dur="1.408450704225352s" calcMode="spline" keyTimes="0;0.25;0.5;0.75;1" values="0;0;3;3;3" keySplines="0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1" begin="-0.704225352112676s"></animate>
+							  <animate attributeName="cx" repeatCount="indefinite" dur="1.408450704225352s" calcMode="spline" keyTimes="0;0.25;0.5;0.75;1" values="16;16;16;50;84" keySplines="0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1" begin="-0.704225352112676s"></animate>
+							</circle><circle cx="16" cy="50" r="10" fill="#a3a3ac">
+							  <animate attributeName="r" repeatCount="indefinite" dur="1.408450704225352s" calcMode="spline" keyTimes="0;0.25;0.5;0.75;1" values="0;0;3;3;3" keySplines="0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1" begin="-1.056338028169014s"></animate>
+							  <animate attributeName="cx" repeatCount="indefinite" dur="1.408450704225352s" calcMode="spline" keyTimes="0;0.25;0.5;0.75;1" values="16;16;16;50;84" keySplines="0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1" begin="-1.056338028169014s"></animate>
+							</circle>
+							<!-- [ldio] generated by https://loading.io/ -->
+						</svg>
+					</ul>
+				</li>
+				<br/>
+				<li><a href="#"><i class="fas fa-database"></i>Mysql query</a></li>
+				<li><a href="#"><i class="fas fa-wrench"></i>Settings</a></li>
+				<li><a href="../documentation"><i class="fab fa-readme"></i>Documentation</a></li>
+			</ul>
+			<footer class="mob_no">
+				<p>© Copyright, CIC.</p>
+				<p>All rights reserved.</p>
+			</footer>
+		</section>
+		
+		
+		<!-- Content -->
+		<section class="content">
+			<div id="load">
+				<svg  style="margin: auto; background: rgba(255, 255, 255, 0); display: block; shape-rendering: auto;" width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+					<g transform="rotate(0 50 50)">
+					  <rect x="47.5" y="24" rx="2.5" ry="3" width="5" height="12" fill="#6a6a6a">
+						<animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.8474576271186441s" begin="-0.7768361581920904s" repeatCount="indefinite"></animate>
+					  </rect>
+					</g><g transform="rotate(30 50 50)">
+					  <rect x="47.5" y="24" rx="2.5" ry="3" width="5" height="12" fill="#6a6a6a">
+						<animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.8474576271186441s" begin="-0.7062146892655368s" repeatCount="indefinite"></animate>
+					  </rect>
+					</g><g transform="rotate(60 50 50)">
+					  <rect x="47.5" y="24" rx="2.5" ry="3" width="5" height="12" fill="#6a6a6a">
+						<animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.8474576271186441s" begin="-0.635593220338983s" repeatCount="indefinite"></animate>
+					  </rect>
+					</g><g transform="rotate(90 50 50)">
+					  <rect x="47.5" y="24" rx="2.5" ry="3" width="5" height="12" fill="#6a6a6a">
+						<animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.8474576271186441s" begin="-0.5649717514124294s" repeatCount="indefinite"></animate>
+					  </rect>
+					</g><g transform="rotate(120 50 50)">
+					  <rect x="47.5" y="24" rx="2.5" ry="3" width="5" height="12" fill="#6a6a6a">
+						<animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.8474576271186441s" begin="-0.4943502824858757s" repeatCount="indefinite"></animate>
+					  </rect>
+					</g><g transform="rotate(150 50 50)">
+					  <rect x="47.5" y="24" rx="2.5" ry="3" width="5" height="12" fill="#6a6a6a">
+						<animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.8474576271186441s" begin="-0.423728813559322s" repeatCount="indefinite"></animate>
+					  </rect>
+					</g><g transform="rotate(180 50 50)">
+					  <rect x="47.5" y="24" rx="2.5" ry="3" width="5" height="12" fill="#6a6a6a">
+						<animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.8474576271186441s" begin="-0.3531073446327684s" repeatCount="indefinite"></animate>
+					  </rect>
+					</g><g transform="rotate(210 50 50)">
+					  <rect x="47.5" y="24" rx="2.5" ry="3" width="5" height="12" fill="#6a6a6a">
+						<animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.8474576271186441s" begin="-0.2824858757062147s" repeatCount="indefinite"></animate>
+					  </rect>
+					</g><g transform="rotate(240 50 50)">
+					  <rect x="47.5" y="24" rx="2.5" ry="3" width="5" height="12" fill="#6a6a6a">
+						<animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.8474576271186441s" begin="-0.211864406779661s" repeatCount="indefinite"></animate>
+					  </rect>
+					</g><g transform="rotate(270 50 50)">
+					  <rect x="47.5" y="24" rx="2.5" ry="3" width="5" height="12" fill="#6a6a6a">
+						<animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.8474576271186441s" begin="-0.14124293785310735s" repeatCount="indefinite"></animate>
+					  </rect>
+					</g><g transform="rotate(300 50 50)">
+					  <rect x="47.5" y="24" rx="2.5" ry="3" width="5" height="12" fill="#6a6a6a">
+						<animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.8474576271186441s" begin="-0.07062146892655367s" repeatCount="indefinite"></animate>
+					  </rect>
+					</g><g transform="rotate(330 50 50)">
+					  <rect x="47.5" y="24" rx="2.5" ry="3" width="5" height="12" fill="#6a6a6a">
+						<animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.8474576271186441s" begin="0s" repeatCount="indefinite"></animate>
+					  </rect>
+					</g>
+					<!-- [ldio] generated by https://loading.io/ -->
+				</svg>
+			</div>
+			
+			<div class="page_body" id="error"></div>
+			<div id="loginform" style="display: none;">
+				<form action="../cic/admin.php?action=login" method="POST">
+					<p><b>Login</b></p>
+						
+					  <p>Name<Br><input type="text" name="admin_name"></p>
+					  <p>Password<Br><input type="password" name="password"></p>
+					  
+					  <p><input type="submit"></p>
+				</form>
+			</div>
+			
+			<div class="page_body" id="user"></div>
+			<div class="page_body" id="project"></div>
+			<div class="page_body" id="page"></div>
+			<div class="page_body" id="sql_query"></div>
+			<div class="page_body" id="settings"></div>
+			
+			
+			<!-- ----------- MODAL BOXES ------------->
+			<!-- New page -->
+			<div class="overlay page_add_ul">
+				<div class="block_ul_in">
+					<i class="far fa-times-circle close"></i>
+					<p>Create new page</p>
+					<input type="text" name="page_name" placeholder="Page name...">
+					<textarea class="modal_text" name="page_note" placeholder="Description..."></textarea>
+					<input type="submit" class="btn" value="Create page"/>
+				</div>
+			</div>
+			
+			<!-- Change page -->
+			<div class="overlay page_edit_ul">
+				<div class="block_ul_in">
+					<i class="far fa-times-circle close"></i>
+					<p>Edit page info</p>
+					<input type="hidden" name="page_name" value="">
+					<input type="text" name="new_name" value="">
+					<textarea class="modal_text" name="page_note" placeholder="Description..."></textarea>
+					<input type="submit" class="btn" value="Change info">
+				</div>
+			</div>
+			<!-- Clone page -->
+			<div class="overlay page_clone_ul">
+				<div class="block_ul_in">
+					<i class="far fa-times-circle close"></i>
+					<p>Clone page</p>
+					<input type="hidden" name="page_name" value="">
+					<input type="text" name="new_name" value="">
+					<textarea class="modal_text" name="page_note" placeholder="Description..."></textarea>
+					<input type="submit" class="btn" value="Create page">
+				</div>
+			</div>
+			<!-- Delete page -->
+			<div class="overlay page_del_ul">
+				<div class="block_ul_in">
+					<i class="far fa-times-circle close"></i>
+					<p>Delete page?</p>
+					<input type="text" disabled="true" name="page_name" value="">
+					<input type="submit" class="btn" value="Delete">
+				</div>
+			</div>
+			<!-- Create container -->
+			<div class="overlay page_box_add_ul">
+				<div class="block_ul_in">
+					<i class="far fa-times-circle close"></i>
+					<p>Create new container</p>
+					<input type="hidden" name="page_name">
+					<input type="text" name="cont_name" placeholder="Container name...">
+					<textarea class="modal_text" name="cont_note" placeholder="Description..."></textarea>
+					<input type="submit" class="btn" value="Create"/>
+				</div>
+			</div>
+			<!-- Change container -->
+			<div class="overlay page_box_edit_ul">
+				<div class="block_ul_in">
+					<i class="far fa-times-circle close"></i>
+					<p>Edit container info</p>
+					<input type="hidden" name="page_name" value="">
+					<input type="hidden" name="cont_name" value="">
+					<input type="text" name="new_name" value="">
+					<textarea class="modal_text" name="cont_note" placeholder="Description..."></textarea>
+					<input type="submit" class="btn" value="Change info">
+				</div>
+			</div>
+			<!-- Clone container -->
+			<div class="overlay page_box_clone_ul">
+				<div class="block_ul_in">
+					<i class="far fa-times-circle close"></i>
+					<p>Copy container <b name="cont_name"></b></p>
+					<p>from page: <b name="page_name"></b></p>
+					<p>to page:<select id="page_list"></select></p>
+					<input type="hidden" name="cont_name"  disabled="true" value="">
+					<input type="hidden" name="page_name"  disabled="true" value="">
+					
+					<input type="text" name="new_name" value="" placeholder="New container name">
+					<textarea class="modal_text" name="cont_note" placeholder="Description..."></textarea>
+					<input type="submit" class="btn" value="Copy">
+				</div>
+			</div>
+			<!-- Delete container -->
+			<div class="overlay page_box_del_ul">
+				<div class="block_ul_in">
+					<i class="far fa-times-circle close"></i>
+					<p>Delete container?</p>
+					<input type="hidden" name="page_name" value="">
+					<input type="text" disabled="true" name="cont_name" value="">
+					<input type="submit" class="btn" value="Delete">
+				</div>
+			</div>
+			<!-- container info -->
+			<div class="overlay_2 box_info_ul">
+				<div class="block_ul_in">
+					<i class="far fa-times-circle close"></i>
+					<input type="hidden" name="page_name" value="">
+					<input type="hidden" name="cont_name" value="">
+					<p>Container info</p>
+					<pre id="container-info" class="json-display"></pre>
+					<p>Container variables</p>
+					<pre id="container-var" class="json-display"></pre>
+					<input type="submit" class="btn" value="Close">
+				</div>
+			</div>
+		</section>
+	</main>
+</body>
+</html>
