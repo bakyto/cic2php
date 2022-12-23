@@ -1,0 +1,41 @@
+body{
+	background: #333;
+	color: #ccc;
+}
+a{
+	color: #ccc;
+}
+a:hover{
+	color: #f5f5f5;
+}
+header{
+	background: #000;
+}
+header h1{
+}
+header .setings span:hover{
+	color: #fff;
+}
+
+main{
+}
+.leftbar{
+	background: #222;
+}
+.leftbar ul li span:hover{
+	color: #f5f5f5;
+}
+.content .row{
+	background: #222;
+}
+/* 
+.content .CodeMirror{
+	color: #ccc;
+}
+.content .CodeMirror-gutter-wrapper,
+.content .CodeMirror-scroll{
+	background: #444 !important;
+} */
+
+footer{
+}

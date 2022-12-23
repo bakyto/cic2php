@@ -1,0 +1,358 @@
+
+html{
+	padding: 0;
+	margin: 0;
+}
+body{
+	padding: 0;
+	margin: 0;
+	font-family: tahoma, Arial;
+	font-size: 11pt;
+}
+a{
+	text-decoration: none;
+}
+h2{
+	margin: 0;
+	padding: 25px 0 10px 0;
+}
+table{
+	width: 100%;
+}
+table tr td{
+	padding: 10px;
+	margin: 0;
+	border: 1px solid #555;
+}
+input, button{
+	width: 94.5%;
+	padding: 10px;
+	border: 1px solid #111;
+	background: #333;
+	color: #ccc;
+	margin: 5px 0;
+}
+textarea{
+	width: 98%;
+	padding: 10px;
+	border: 1px solid #111;
+	background: #2b2b2b;
+	color: #ccc;
+	margin: 5px 0;
+}
+select{
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #222;
+	margin: 5px 0;
+	background: #333;
+	color: #ccc;
+}
+.right{
+	text-align: right;
+}
+.btn{
+	width: 100%;
+	padding: 10px 10px;
+	background: #2B2B2B;
+	color: #ccc;
+	border: none;
+	margin: 10px 0 0 0;
+	float: right;
+	cursor: pointer;
+}
+.btn:hover{
+	background: #333;
+}
+.btn_large{
+	width: 100%;
+	padding: 10px 15px;
+	background: #555;
+	color: #ccc;
+	border: none;
+	margin: 10px 0 0 0;
+	text-align: center;
+	cursor: pointer;
+}
+.btn_large:hover{
+	background: #333;
+}
+.page_add{
+	font-size: 11px;color: 
+	rgb(128 128 128 /60%);
+}
+header{
+	padding: 20px;
+	display: grid;
+	grid-template-columns: 10fr 3fr;
+	text-align: right;
+}
+header h1{
+	font-size: 12pt;
+	font-weight: normal;
+	margin: 0;
+	text-align: left;
+}
+header .setings a{
+	font-size: 12pt;
+	cursor: pointer;
+	padding: 0 7px;
+}
+
+main{
+	height: 100vh;
+	display: grid;
+	margin: 0 0 20px 0;
+}
+.leftbar{
+	margin: 20px 0 0 0;
+	font-size: 11pt;
+}
+.leftbar_scroll{
+	position: fixed;
+	overflow-y: auto;
+}
+.leftbar_menu_btn{
+	position: absolute;
+	right: 10px;
+	top: 25px;
+	padding: 9px 15px 12px 15px;
+	font-size: 20px;
+	background-color: #333333;
+	border-radius: 50px;
+	cursor: pointer;
+}
+.leftbar_menu_btn:hover{
+	background-color: #555;
+}
+.leftbar ul{
+	margin: 0;
+	padding: 0;
+}
+.leftbar ul li{
+	list-style: none;
+	margin: 0;
+}
+.leftbar ul li a{
+	display: inline-block;
+	padding: 7px 10px;
+	width: 200px;
+}
+.leftbar ul li ul li span:hover,
+.leftbar ul li a.active,
+.leftbar ul li a:hover{
+	background: #444;
+}
+.leftbar ul li .fas,
+.leftbar ul li .fab{
+	width: 20px;
+}
+.leftbar ul li ul{
+	margin: 0;
+	padding: 0;
+}
+.leftbar ul li ul li a{
+	width: 190px;
+	padding: 7px 10px 7px 20px;
+}
+.leftbar ul li ul li span{
+	display: inline-block;
+	cursor: pointer;
+	width: 200px;
+	padding: 7px 0px 7px 20px;
+}
+.leftbar ul li ul li span i.menu_cat_i{
+	margin: 0 0 0 10px;
+	float: right;
+	font-size: 11pt;
+}
+.leftbar ul li ul li ul{
+	display: none;
+}
+.leftbar ul li ul li ul li a{
+	width: 180px;
+	padding: 7px 10px 7px 30px;
+}
+
+.content{
+	padding: 20px;
+	min-height: 520px;
+}
+.content .page_title{
+	padding: 0 0 20px 0;
+	margin: 5px 0;
+	overflow: hidden;
+	border-bottom: 1px solid #222;
+}
+.content .page_title_left{
+	float: left;
+	white-space: nowrap;
+    overflow: hidden;
+	text-overflow: ellipsis; 
+}
+.content .page_title_left i{
+	margin: 0 5px;
+}
+.content .page_title_right{
+	float: right;
+}
+.content .page_title_right i{
+	margin: 0 0 0 15px;
+	font-size: 12pt;
+	cursor:pointer;
+}
+
+.page_box_add{
+	cursor: pointer;
+}
+.overlay{
+	display: none;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.8);
+	z-index: 100;
+}
+.overlay_2{
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	min-height: 100%;
+	overflow: hidden;
+	background: rgba(0, 0, 0, 0.8);
+	z-index: 100;
+}
+.block_ul_in{
+	position: relative;
+	margin: auto;
+	padding: 20px;
+	width: 400px;
+	background: #222;
+	margin-top: 60px;
+	overflow: hidden;
+}
+.close{
+	font-size: 16pt;
+	cursor: pointer;
+	margin: -15px -15px 10px 0;
+	float: right;
+}
+
+.code{
+	border: 2px solid #444;
+	padding: 10px;
+	background-color: #2B2B2B;
+	overflow: hidden;
+}
+
+.content .row{
+	padding: 15px;
+	margin: 5px 0;
+	overflow: hidden;
+}
+.box_code{
+	overflow: hidden;
+}
+
+.content .row .box_title_left{
+	display: inline-block;
+}
+.content .row .box_title_left i{
+	cursor: pointer;
+	margin: 0 10px 0 0;
+}
+
+.content .row .box_title_right {
+	display: inline-block;
+}
+.content .row .box_title_right i{
+	cursor: pointer;
+	margin: 0 0 0 10px;
+}
+.page_info,
+.content .row .box_title_right .box_info,
+.content .row .box_title_right .box_del{
+	position: relative;
+}
+.info_ul{
+	text-align: right;
+	display: none;
+	position: absolute;
+	top: -5px;
+	right: 25px;
+	background: #222;
+	color: #666;
+	padding: 5px;
+	width: 370px;
+}
+.box_del_yes{
+	cursor: pointer;
+	padding: 2px 10px;
+	background: #ccc;
+	color: #222;
+	border-radius: 3px;
+}
+
+.content .row form{
+	margin: 15px 0 0 0;
+}
+.content .row i:hover{
+	color: #fff;
+}
+.content .lbl{
+	display: inline-block;
+	padding: 5px 7px;
+	margin: 10px 0 0 0;
+	background: #444;
+	color: #ccc;
+	cursor: pointer;
+}
+.content .lbl_active{
+	background: #eee;
+	color: #333;
+}
+
+.page_info_ul,
+footer{
+	padding: 20px 0;
+	text-align: center;
+	color: #666;
+	font-size: 9pt;
+}
+div#error{
+	color:red;
+}
+div.page_body{
+	display:none;
+}
+ul#left_menu{
+	overflow: hidden;
+	background-color: #222;
+}
+ul#left_menu a {
+    text-decoration:none;
+}
+span.note{
+    padding: 0 10px;
+    color: #555;
+}
+.create_time, .edit_time{
+	font-size:  11px;
+	padding: 0 0 0 10px;
+    color: #555;
+}
+
+.CodeMirror {
+	resize: vertical;
+	overflow: hidden;
+	height: 100%; 
+}
+.json-display {
+	border: 1px solid #000;
+	margin: 0;
+	padding: 10px 20px;
+}
