@@ -1,13 +1,15 @@
 $(document).ready( function(){
 	$("div.page_body").html("").hide();
 	$("div#load").show();
+	$("div.loginform_out").hide();
 	
 	function DecodeError(err, obj){
 		res = "";
 		switch (err) {
 			case 'ERR_NotLogin': 
 				res = "Please login";
-				$('#loginform').show();	
+				$(".loginform_out").show();
+				// $('#loginform').show();	
 				break;
 			case 'ERR_InvalidName': res = "Invalid name: " + obj; break;
 			case 'ERR_ExistName': res = "Exist name: " + obj; break;
@@ -44,6 +46,35 @@ $(document).ready( function(){
 			$('.overlay_2').fadeOut(300);
 		});
 	
+		/* FOLDERS */
+
+		/* + Показать Создание папки beki+ */
+		$('.folder_add').on('click', function(){
+			$('.folder_add_ul').fadeIn(300);
+		});
+
+		/* + Показать папки beki+ */
+		$('.folder_open').click(function() {
+			$(".pages_list").toggle(100);
+			if ($("i.box_toggle", row).hasClass("fa-caret-up")){
+				$("i.box_toggle", row).removeClass("fa-caret-up").addClass("fa-caret-down");
+			}else if($("i.box_toggle", row).hasClass("fa-caret-down")){
+				$("i.box_toggle", row).removeClass("fa-caret-down").addClass("fa-caret-up");
+			};
+		});
+		
+		/* + Показать Изменение папки beki+ */
+		$('.folder_edit').click(function() {
+			buff = $(this).parents("div.folder_title");
+			name = $("span.name", buff).html();
+			note = $("span.note", buff).html();
+			$('div.folder_edit_ul [name="folder_name"]').val(name);
+			$('div.folder_edit_ul [name="new_folder_name"]').val(name);
+			$('div.folder_edit_ul [name="folder_note"]').val(note);
+			$('.folder_edit_ul').fadeIn(300);
+		});
+	
+		/* PAGES */
 		/* + Показать Создание страницы */
 		$('.page_add').on('click', function(){
 			$('.page_add_ul').fadeIn(300);
