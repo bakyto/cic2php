@@ -28,11 +28,27 @@ $(document).ready( function(){
 	/* + Показать папки beki+ */
 	$('.folder_open').click(function() {
 		$(".pages_list").toggle(100);
-		if ($("i.box_toggle", row).hasClass("fa-caret-up")){
-			$("i.box_toggle", row).removeClass("fa-caret-up").addClass("fa-caret-down");
-		}else if($("i.box_toggle", row).hasClass("fa-caret-down")){
-			$("i.box_toggle", row).removeClass("fa-caret-down").addClass("fa-caret-up");
+		if ($("i.box_toggle", "#left_menu").hasClass("fa-caret-up")){
+			$("i.box_toggle", "#left_menu").removeClass("fa-caret-up").addClass("fa-caret-down");
+		}else if($("i.box_toggle", "#left_menu").hasClass("fa-caret-down")){
+			$("i.box_toggle", "#left_menu").removeClass("fa-caret-down").addClass("fa-caret-up");
 		};
+	});
+	
+	$("a#settings").click(function(){
+		$("div.page_body").html("").hide();
+		$("div.page_body#settings").show().html(`
+		<div class="page_body1 loginform" id="setting">
+				<form action="../cic/admin.php?action=setting" method="POST">
+					<h2 class="center">Settings</h2>
+						<!--<div class="page_body" id="error"> </div>-->
+						<p>Admin name<Br><input type="text" name="admin_name" value="admin"></p>
+						<p>New password<Br><input type="password" name="newpassword"></p>
+						<p>Repeat new password<Br><input type="password" name="newpasswordrep"></p>
+						<p>Old password<Br><input type="password" name="password"></p>
+						<p><input type="Submit" value="Save changes"></p>
+				</form>
+			</div>`);
 	});
 	
 	function loadFunctions(){
