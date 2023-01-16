@@ -37,20 +37,47 @@ $(document).ready( function(){
 	
 	$("a#settings").click(function(){
 		$("div.page_body").html("").hide();
+		admin_name = "";
+		
 		$("div.page_body#settings").show().html(`
-		<div class="page_body1 loginform" id="setting">
-				<form action="../cic/admin.php?action=setting" method="POST">
-					<h2 class="center">Settings</h2>
-						<!--<div class="page_body" id="error"> </div>-->
-						<p>Admin name<Br><input type="text" name="admin_name" value="admin"></p>
-						<p>New password<Br><input type="password" name="newpassword"></p>
-						<p>Repeat new password<Br><input type="password" name="newpasswordrep"></p>
-						<p>Old password<Br><input type="password" name="password"></p>
-						<p><input type="Submit" value="Save changes"></p>
-				</form>
-			</div>`);
+		<div class="loginform" id="setting">
+			<form action="#" method="POST">
+				<h2 class="center">Settings</h2>
+					<input class="user" type="hidden" name="username" value="">
+					<p>Admin name<Br><input class="user" type="text" name="newname" value="" required></p>
+					<p>New password<Br><input type="password" name="newpassword"></p>
+					<p>Repeat new password<Br><input type="password" name="newpasswordrep"></p>
+					<p>Old password<Br><input type="password" name="password" required></p>
+					<p><input id="chanesettings" type="button" value="Save changes"></p>
+			</form>
+		</div>`);
+		
+		$.ajax({
+			method: "GET",
+			url: "../cic/admin.php?action=GetUserName",
+			success:
+				function(data){
+					if(data.err==""){
+						admin_name = data.res;
+					}else{
+						admin_name = "";
+					}
+					$("input.user", "div.page_body#settings").val(admin_name);
+				}
+		});
+		
+		$("input#chanesettings").on("click", function(){
+			//../cic/admin.php?action=setting
+			alert("chanesettings");
+			//$("a#settings").click();
+		});
 	});
 	
+	/* leftbar_menu_btn */
+	$('.leftbar_menu_btn').click(function() {
+		$('#left_menu').toggle(300);
+	});
+		
 	function loadFunctions(){
 
 		/* + Закрывать при нажатии ESC */
@@ -59,11 +86,6 @@ $(document).ready( function(){
 				$('.overlay').css("display", 'none');
 				$('.overlay_2').css("display", 'none');
 			}
-		});
-
-		/* leftbar_menu_btn */
-		$('.leftbar_menu_btn').click(function() {
-			$('#left_menu').toggle(300);
 		});
 
 		/* + Скрыть overlay */
@@ -75,7 +97,7 @@ $(document).ready( function(){
 		/* FOLDERS */
 
 		/* + Показать Создание папки beki+ */
-		$('.folder_add').on('click', function(){
+		$('#add_folder').on('click', function(){
 			$('.folder_add_ul').fadeIn(300);
 		});
 
@@ -92,7 +114,7 @@ $(document).ready( function(){
 	
 		/* PAGES */
 		/* + Показать Создание страницы */
-		$('.page_add').on('click', function(){
+		$('#add_page').on('click', function(){
 			$('.page_add_ul').fadeIn(300);
 		});
 		
@@ -695,7 +717,10 @@ $(document).ready( function(){
 						
 						i = i + 1;
 					}
-					menuPages = menuPages + '<li><a href="#" class="page_add"><i class="fas fa-plus-circle"></i>New Page</a></li>';
+					menuPages = menuPages 
+						+ '<li><a folder_id="0" id="add_page" href="#" class="add_button"><i class="fas fa-plus-circle"></i>New Page</a></li>'
+						+ '<li><a folder_id="0" id="add_folder" href="#" class="add_button""><i class="fas fa-folder-plus"></i>New folder</a></li>'
+						;
 					$("ul#pages_list").html(menuPages);
 					$("div#load").hide();
 					$("div#project").show().html(bodyPages);

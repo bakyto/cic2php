@@ -71,14 +71,10 @@ select{
 	color: #fff;
 	border-radius: 5px;
 }
-#new_folder{
-	background: #333333;
-}
-.page_add{
+.add_button{
 	font-size: 11px;
-	background: #333333;
-	color: #fff;
-	border-radius: 5px;
+	color: #545454;
+	/* border-radius: 5px; */
 }
 header{
 	padding: 20px;

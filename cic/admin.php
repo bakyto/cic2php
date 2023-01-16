@@ -588,7 +588,34 @@ SELECT :newpageID, :newname, c.`order`, c.`content`, :note FROM `_cic_container`
 		$res = array('err'=>$err, 'obj'=>$key, 'res'=>$res); 
 		PrintJSON($res);
 		break;
+	
+	case 'GetUserName': 
+		$query = "SELECT `key` FROM `_cic_config` WHERE `group`=1 AND md5(`key`)=:admin_name";		
+		$array = array('admin_name' => $_COOKIE[COOKIE_ADMIN]);
 		
+		$tab = $db->GetTabFromSQL($query, $array);
+		$err = $db->error;
+		if ($tab){// если key вернул то:
+			$res = $tab[0]->key;
+		}else{ 
+			$res = "";
+		}
+		$res = array('err'=>$err, 'obj'=>'admin name', 'res'=>$res); 
+		PrintJSON($res);
+		break;
+	
+	case 'setting':
+		// проверка username и password 
+		// проверка username и newname
+		// проверка newpassword и newpasswordrep
+		
+		echo ($_POST['username'] . "<br>");
+		echo ($_POST['newname'] . "<br>");
+		echo ($_POST['newpassword'] . "<br>");
+		echo ($_POST['newpasswordrep'] . "<br>");
+		echo ($_POST['password'] . "<br>");
+		break;
+	
 	default: break;
 }
 ?>
