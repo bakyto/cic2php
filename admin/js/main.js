@@ -25,6 +25,16 @@ $(document).ready( function(){
 		return res;
 	}
 	
+	/* + Показать папки beki+ */
+	$('.folder_open').click(function() {
+		$(".pages_list").toggle(100);
+		if ($("i.box_toggle", row).hasClass("fa-caret-up")){
+			$("i.box_toggle", row).removeClass("fa-caret-up").addClass("fa-caret-down");
+		}else if($("i.box_toggle", row).hasClass("fa-caret-down")){
+			$("i.box_toggle", row).removeClass("fa-caret-down").addClass("fa-caret-up");
+		};
+	});
+	
 	function loadFunctions(){
 
 		/* + Закрывать при нажатии ESC */
@@ -53,16 +63,6 @@ $(document).ready( function(){
 			$('.folder_add_ul').fadeIn(300);
 		});
 
-		/* + Показать папки beki+ */
-		$('.folder_open').click(function() {
-			$(".pages_list").toggle(100);
-			if ($("i.box_toggle", row).hasClass("fa-caret-up")){
-				$("i.box_toggle", row).removeClass("fa-caret-up").addClass("fa-caret-down");
-			}else if($("i.box_toggle", row).hasClass("fa-caret-down")){
-				$("i.box_toggle", row).removeClass("fa-caret-down").addClass("fa-caret-up");
-			};
-		});
-		
 		/* + Показать Изменение папки beki+ */
 		$('.folder_edit').click(function() {
 			buff = $(this).parents("div.folder_title");
@@ -228,6 +228,7 @@ $(document).ready( function(){
 			$('div.box_info_ul [name="cont_name"]').val(name);
 			$('.box_info_ul').fadeIn(100);
 		});
+		
 		
 		/* + Показать/Скрыть содержание бокса */
 		$('.box_toggle').click(function() {
