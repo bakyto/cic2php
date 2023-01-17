@@ -91,9 +91,13 @@ $(document).ready( function(){
 							$("div#success").show().html(DecodeError(data.res));
 							// Your application has indicated there's an error
 							window.setTimeout(function(){
-
+								$.ajax({
+									method: "GET",
+									url: "../cic/admin.php?action=logout",
+								});
+								
 								// Move to a new location or you can do something else
-								window.location.href = "/cic/admin.php?action=logout";
+								window.location.href = "/admin";
 
 							}, 1000);
 						}else{
