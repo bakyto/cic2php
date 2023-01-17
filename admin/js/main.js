@@ -16,6 +16,12 @@ $(document).ready( function(){
 			case 'ERR_NoneName': res = "Name does not exist: " + obj; break;
 			case 'ERR_NoneEmpty': res = "None empty: " + obj; break;
 			
+			case 'ERR_NotLogin': res = "Failed to login"; break;
+			case 'ERR_PassRep': res = "Passwords do not match"; break;
+			case 'ERR_Password': res = "Wrong password!"; break;
+			
+			case 'MSG_SettingSuccess': res = "Changes saved successfully!" ; break;
+			
 		  default:
 			if (obj != ""){
 				obj = " (" + obj + ")";
@@ -40,14 +46,14 @@ $(document).ready( function(){
 		admin_name = "";
 		
 		$("div.page_body#settings").show().html(`
-		<div class="loginform" id="setting">
+		<div class="loginform">
 			<form action="#" method="POST">
 				<h2 class="center">Settings</h2>
 					<input class="user" type="hidden" name="username" value="">
 					<p>Admin name<Br><input class="user" type="text" name="newname" value="" required></p>
 					<p>New password<Br><input type="password" name="newpassword"></p>
 					<p>Repeat new password<Br><input type="password" name="newpasswordrep"></p>
-					<p>Old password<Br><input type="password" name="password" required></p>
+					<p>Old password<Br><input type="password" name="pass" required></p>
 					<p><input id="chanesettings" type="button" value="Save changes"></p>
 			</form>
 		</div>`);
@@ -67,9 +73,35 @@ $(document).ready( function(){
 		});
 		
 		$("input#chanesettings").on("click", function(){
-			//../cic/admin.php?action=setting
-			alert("chanesettings");
-			//$("a#settings").click();
+			$("div#error").html("").hide();
+			$("div#success").html("").hide();
+			$.ajax({
+				method: "POST",
+				url: "../cic/admin.php?action=setting",
+				data: {
+					username: $("input[name=username]", "div#settings").val(), 
+					newname: $("input[name=newname]", "div#settings").val(), 
+					newpassword: $("input[name=newpassword]", "div#settings").val(), 
+					newpasswordrep: $("input[name=newpasswordrep]", "div#settings").val(), 
+					pass: $("input[name=pass]", "div#settings").val()
+				},
+				success:
+					function(data){
+						if(data.err==""){
+							$("div#success").show().html(DecodeError(data.res));
+							// Your application has indicated there's an error
+							window.setTimeout(function(){
+
+								// Move to a new location or you can do something else
+								window.location.href = "/cic/admin.php?action=logout";
+
+							}, 1000);
+						}else{
+							$("div#error").show().html(DecodeError(data.err));
+						}
+					}
+				
+			});
 		});
 	});
 	

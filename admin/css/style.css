@@ -330,6 +330,9 @@ footer{
 div#error{
 	color:red;
 }
+div#success{
+	color:green;
+}
 div.page_body{
 	display:none;
 }

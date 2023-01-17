@@ -5,6 +5,10 @@ define('ERR_ExistName', 'ERR_ExistName'); //'Exist name');
 define('ERR_NoneName', 'ERR_NoneName'); //'None name');
 define('ERR_NoneEmpty', 'ERR_NoneEmpty'); //'None empty');
 define('ERR_NotLogin', 'ERR_NotLogin'); //'Not login');
+define('ERR_Password', 'ERR_Password'); //'Wrong password');
+define('ERR_PassRep', 'ERR_PassRep'); //'Passwords dont match');
+
+define('MSG_SettingSuccess', 'MSG_SettingSuccess'); //'Setting Success');
 
 define('COOKIE_ADMIN', 'admin_name');
 define('COOKIE_EXP_TIME', 60*60*24*10); // 10 day
@@ -605,17 +609,44 @@ SELECT :newpageID, :newname, c.`order`, c.`content`, :note FROM `_cic_container`
 		break;
 	
 	case 'setting':
-		// проверка username и password 
-		// проверка username и newname
-		// проверка newpassword и newpasswordrep
-		
-		echo ($_POST['username'] . "<br>");
-		echo ($_POST['newname'] . "<br>");
-		echo ($_POST['newpassword'] . "<br>");
-		echo ($_POST['newpasswordrep'] . "<br>");
-		echo ($_POST['password'] . "<br>");
+		$res = "";
+		$err = "";
+		$obj = "";
+		// Проверка на правильность имени (ERR_InvalidName)
+		if (ValidName($_POST['newname'])){
+			// проверка newpassword и newpasswordrep (ERR_PassRep)
+			if($_POST['newpassword']==$_POST['newpasswordrep']){
+				// проверка username и password (ERR_Password)
+				$query = "SELECT `key` FROM `_cic_config` WHERE `group`=1 AND `key`=:admin_name AND `value`=sha(:passw)";
+				$array = array('admin_name' => $_POST['username'], 'passw' => $_POST['pass']);
+				$tab = $db->GetTabFromSQL($query, $array);
+				if ($tab){
+					if($_POST['newpassword']==""){
+						$pass = $_POST['pass'];
+					}else{
+						$pass = $_POST['newpassword'];
+					}
+					$query = "UPDATE `_cic_config` SET `key`=:new_name, `value`=sha(:pass) WHERE `group`=1 AND `key`=:admin_name";
+					$array = array('admin_name' => $_POST['username'], 'new_name'=>$_POST['newname'], 'pass' => $pass);
+					$tab = $db->pdo->prepare($query)->execute($array);
+					//$err = $db->error;
+					$res = MSG_SettingSuccess;
+				}else{ 
+					$err = ERR_Password; 
+					$obj = $_POST['pass'];
+				}
+			}else{
+				$err = ERR_PassRep; 
+				$obj = $_POST['newpassword'];
+			}
+		}else{
+			$err = ERR_InvalidName; 
+			$obj = $_POST['newname'];
+		}			
+		$res = array('err'=>$err, 'obj'=>$obj, 'res'=>$res); 
+		PrintJSON($res);
 		break;
-	
+
 	default: break;
 }
 ?>
