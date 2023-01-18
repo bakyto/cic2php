@@ -1,7 +1,8 @@
 $(document).ready( function(){
 	$("div.page_body").html("").hide();
-	$("div#load").show();
 	$("div.loginform_out").hide();
+	$("div#load").show();
+	
 	
 	function DecodeError(err, obj){
 		res = "";
@@ -16,7 +17,6 @@ $(document).ready( function(){
 			case 'ERR_NoneName': res = "Name does not exist: " + obj; break;
 			case 'ERR_NoneEmpty': res = "None empty: " + obj; break;
 			
-			case 'ERR_NotLogin': res = "Failed to login"; break;
 			case 'ERR_PassRep': res = "Passwords do not match"; break;
 			case 'ERR_Password': res = "Wrong password!"; break;
 			

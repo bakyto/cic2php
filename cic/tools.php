@@ -89,10 +89,16 @@ class DataBasePDO{
 		$pdo_array = array('page' => $page, 'newname' => $newname);
 		$this->pdo->prepare($pdo_query)->execute($pdo_array);
 	}
-	function DeletePage($page){// добавить удаление всех контейнеров
+	function DeletePage($page){
+		// добавить удаление всех контейнеров
+		$pdo_query = "DELETE FROM `_cic_container` WHERE `page` IN (SELECT `id` as `page` FROM `_cic_pages` WHERE `name`=:page)";
+		$pdo_array = array('page' => $page);
+		$this->pdo->prepare($pdo_query)->execute($pdo_array);
+		
 		$pdo_query = "DELETE FROM `_cic_pages` WHERE `name` = :page";
 		$pdo_array = array('page' => $page);
 		$this->pdo->prepare($pdo_query)->execute($pdo_array);
+		
 	}
 	function GetPageNote($page){
 		$pdo_query = "SELECT `note` FROM `_cic_pages`  WHERE `name`= :page";

@@ -143,15 +143,11 @@ switch ($action) {
 		
 	case 'DeletePage': 
 		$page = $_POST['page'];
-		if ($db->GetPageId($page)){
-			$query = "select c.* from `_cic_container` as c, `_cic_pages` as p where p.`name`=:page and p.`id`=c.`page`";
-			$array = array('page' => $page);
-			$tab = $db->GetTabFromSQL($query, $array);
-			if(!$tab){
-				$db->DeletePage($page);
-				$err = $db->error;
-				$res = 'ok';
-			}else{$err = ERR_NoneEmpty;}
+		
+		if ($db->GetPageId($page)){			
+			$db->DeletePage($page);
+			$err = $db->error;
+			$res = 'ok';
 		}else{$err = ERR_NoneName; }
 		$res = array('err'=>$err, 'obj'=>$page, 'res'=>$res); 
 		PrintJSON($res);
