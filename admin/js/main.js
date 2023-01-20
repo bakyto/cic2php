@@ -116,7 +116,7 @@ $(document).ready( function(){
 		
 	function loadFunctions(){
 
-		/* + Закрывать при нажатии ESC */
+		/* + Закрывать overlay при нажатии ESC */
 		$(document).keyup(function(e) {
 			if (e.keyCode === 27) {
 				$('.overlay').css("display", 'none');

@@ -185,6 +185,10 @@
 				<div class="block_ul_in">
 					<i class="far fa-times-circle close"></i>
 					<p>Create new folder</p>
+					<select name="parent_folder">
+						<option value="root">root</option>
+						<option value="folder_id">others folders...</option>
+					</select>
 					<input type="text" name="folder_name" placeholder="Folder name...">
 					<textarea class="modal_text" name="folder_note" placeholder="Description..."></textarea>
 					<input type="submit" class="btn" value="Create folder"/>
@@ -195,6 +199,10 @@
 				<div class="block_ul_in">
 					<i class="far fa-times-circle close"></i>
 					<p>Edit folder info</p>
+					<select name="parent_folder">
+						<option value="selected_folder_id">selected folder name</option>
+						<option value="folder_id">others folders...</option>
+					</select>
 					<input type="hidden" name="folder_name" value="">
 					<input type="text" name="new_folder_name" value="">
 					<textarea class="modal_text" name="folder_note" placeholder="Description..."></textarea>
@@ -218,6 +226,10 @@
 				<div class="block_ul_in">
 					<i class="far fa-times-circle close"></i>
 					<p>Create new page</p>
+					<select name="page_folder">
+						<option value="root_folder_id">root</option>
+						<option value="other_folder_id">others folders...</option>
+					</select>
 					<input type="text" name="page_name" placeholder="Page name...">
 					<textarea class="modal_text" name="page_note" placeholder="Description..."></textarea>
 					<input type="submit" class="btn" value="Create page"/>
@@ -229,6 +241,10 @@
 				<div class="block_ul_in">
 					<i class="far fa-times-circle close"></i>
 					<p>Edit page info</p>
+					<select name="page_folder">
+						<option value="selected_folder_id">selected folder name</option>
+						<option value="other_folder_id">others folders...</option>
+					</select>
 					<input type="hidden" name="page_name" value="">
 					<input type="text" name="new_name" value="">
 					<textarea class="modal_text" name="page_note" placeholder="Description..."></textarea>
